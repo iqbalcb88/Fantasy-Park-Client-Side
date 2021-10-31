@@ -31,7 +31,7 @@ const MyOrder = () => {
     }
   };
   return (
-    <Container>
+    <Container className='overflow-hidden'>
       <h1>My Order</h1>
       {myOrders.map(
         (item) =>

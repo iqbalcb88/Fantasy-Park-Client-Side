@@ -6,13 +6,13 @@ const MyOrderItem = ({ item, handleDelete }) => {
   return (
     <Row className=' py-3'>
       <Col xs={3}>
-        <h4>OrderName: {name}</h4>
+        <p>{name}</p>
       </Col>
       <Col xs={2}>
-        <p>Price: {price}</p>
+        <p> {price}TK.</p>
       </Col>
       <Col xs={2}>
-        <p>Quantity: {quantity}</p>
+        <p>{quantity}nos</p>
       </Col>
       <Col xs={2}>
         <button className='btn btn-info'>{status}</button>
@@ -24,7 +24,7 @@ const MyOrderItem = ({ item, handleDelete }) => {
           }}
           className='btn btn-danger'
         >
-          Remove Event
+          Remove
         </button>
       </Col>
     </Row>

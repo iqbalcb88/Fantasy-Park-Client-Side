@@ -51,7 +51,7 @@ const Home = () => {
     <>
       <Container
         fluid
-        className='style-img d-flex justify-content-center align-items-center'
+        className='style-img d-flex justify-content-center align-items-center overflow-hidden'
       >
         <Row
           xs={1}
@@ -116,7 +116,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid>
+      <Container fluid className='overflow-hidden'>
         <Row xs={12} className='third-section'>
           <Col className='section-item'>
             <FontAwesomeIcon icon={faTicketAlt} size='2x' />

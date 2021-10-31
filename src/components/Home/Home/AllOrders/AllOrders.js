@@ -33,7 +33,7 @@ const AllOrders = () => {
   // handle status btn
   // const handleStatusBtn = () => {};
   return (
-    <Container>
+    <Container className='overflow-hidden'>
       <h1>All Orders</h1>
       {allOrders.map((item) => (
         <AllOrderItem handleDelete={handleDelete} item={item} key={item._id} />

@@ -119,7 +119,7 @@ const Events = () => {
   return (
     <Container
       fluid
-      className='d-flex bg-light justify-content-center align-items-center flex-column'
+      className='d-flex bg-light justify-content-center align-items-center flex-column overflow-hidden'
     >
       {user.email === 'admin@admin.com' && (
         <div className='my-5'>
