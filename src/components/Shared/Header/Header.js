@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import logo from '../../../images/logoNew.png';
 
 const Header = () => {
   const { loggedOut, user } = useAuth();
@@ -9,7 +10,12 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark' sticky='top'>
       <Container>
-        <Navbar.Brand href='#home'>FANTASY PARK</Navbar.Brand>
+        <Navbar.Brand href='#home'>
+          <div>
+            <img className='img-fluid' width='50' src={logo} alt='' />
+            FANTASY PARK
+          </div>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='m-auto'>

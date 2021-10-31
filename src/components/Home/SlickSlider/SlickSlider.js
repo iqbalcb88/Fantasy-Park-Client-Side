@@ -51,7 +51,7 @@ export default class CenterMode extends Component {
     };
     return (
       <Container fluid className='px-5 py-3 bg-info'>
-        <h4 className='text-white text-center'>Gallery</h4>
+        <h1 className='text-white text-center'>Gallery</h1>
         <Slider {...settings}>
           {[img1, img2, img3, img4, img5, img6].map((item, index) => {
             return (

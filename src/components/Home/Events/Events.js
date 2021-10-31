@@ -107,7 +107,7 @@ const Events = () => {
   return (
     <Container
       fluid
-      className='d-flex justify-content-center align-items-center flex-column'
+      className='d-flex bg-light justify-content-center align-items-center flex-column'
     >
       {user.email === 'admin@admin.com' && (
         <div className='my-5'>
@@ -148,9 +148,42 @@ const Events = () => {
         </div>
       )}
       <div>
-        <Container>
-          <h2>Cart</h2>
+        <Container fluid className='my-5'>
           <Row>
+            <Col sm={12} md={9}>
+              <h1 className='text-center'>All Events</h1>
+              <Row xs={1} md={3} className='g-4'>
+                {events.map((event) => (
+                  <Event
+                    key={event._id}
+                    handleDelete={handleDelete}
+                    event={event}
+                    handleAddToCart={handleAddToCart}
+                  ></Event>
+                ))}
+              </Row>
+            </Col>
+            <Col
+              sm={12}
+              md={3}
+              className='d-flex align-items-center justify-content-center'
+            >
+              <Row className='border border-secondary p-3'>
+                <h2>Cart</h2>
+                <Col>
+                  <Cart cart={cart}>
+                    <Link to='/review'>
+                      <button className='btn btn-warning'>
+                        Review Your Order
+                      </button>
+                    </Link>
+                  </Cart>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          {/* <Row>
+            <h2>Cart</h2>
             <Col>
               <Cart cart={cart}>
                 <Link to='/review'>
@@ -158,9 +191,9 @@ const Events = () => {
                 </Link>
               </Cart>
             </Col>
-          </Row>
-          <h2>All Events</h2>
-          <Row xs={1} md={3} className='g-4'>
+          </Row> */}
+          {/* <h2>All Events</h2> */}
+          {/*  <Row xs={1} md={3} className='g-4'>
             {events.map((event) => (
               <Event
                 key={event._id}
@@ -169,7 +202,7 @@ const Events = () => {
                 handleAddToCart={handleAddToCart}
               ></Event>
             ))}
-          </Row>
+          </Row> */}
         </Container>
         <div className='pagination'>
           {[...Array(pageCount).keys()].map((number) => (
@@ -182,7 +215,6 @@ const Events = () => {
             </button>
           ))}
         </div>
-        <div className='cart'></div>
       </div>
     </Container>
   );

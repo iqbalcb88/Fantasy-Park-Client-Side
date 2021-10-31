@@ -12,6 +12,7 @@ import EventDetails from './components/Home/Events/EventDetails/EventDetails';
 import OrderReview from './components/Home/OrderReview/OrderReview';
 import MyOrder from './components/Home/MyOrder/MyOrder';
 import AllOrders from './components/Home/Home/AllOrders/AllOrders';
+import Footer from './components/Home/Footer/Footer';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <EventDetails />
           </PrivateRoute>
         </Switch>
+        <Footer />
       </Router>
     </AuthProvider>
   );

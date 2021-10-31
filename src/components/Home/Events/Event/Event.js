@@ -37,7 +37,7 @@ const Event = ({ event, handleDelete, handleAddToCart }) => {
               &nbsp; See More
             </button>
           </Link>
-          <br />
+
           {user.email === 'admin@admin.com' && (
             <button
               onClick={() => {
