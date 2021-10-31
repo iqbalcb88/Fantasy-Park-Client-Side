@@ -137,6 +137,7 @@ const Home = () => {
         </Row>
       </Container>
       <CenterMode />
+
       <Events />
     </>
   );

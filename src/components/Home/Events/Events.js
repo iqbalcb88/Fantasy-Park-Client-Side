@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { addToLocalStorage } from '../../../cartOperation/cartOperation';
@@ -15,7 +15,7 @@ const Events = () => {
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [cart, setCart] = useCart();
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
 
   const {
     register,
@@ -103,7 +103,13 @@ const Events = () => {
     // save to local storage (for now)
     addToLocalStorage(event._id);
   };
-
+  if (isLoading) {
+    return (
+      <Container className='d-flex align-items-center justify-content-center bg-danger my-5 py-5'>
+        <Spinner animation='grow' variant='warning' />;
+      </Container>
+    );
+  }
   return (
     <Container
       fluid
