@@ -13,6 +13,7 @@ import OrderReview from './components/Home/OrderReview/OrderReview';
 import MyOrder from './components/Home/MyOrder/MyOrder';
 import AllOrders from './components/Home/Home/AllOrders/AllOrders';
 import Footer from './components/Home/Footer/Footer';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
           <PrivateRoute path='/details/:eventId'>
             <EventDetails />
           </PrivateRoute>
+          <Route path='/notFound'>
+            <NotFound />
+          </Route>
         </Switch>
         <Footer />
       </Router>

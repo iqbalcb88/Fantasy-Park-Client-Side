@@ -14,18 +14,21 @@ const MyOrder = () => {
   // console.log(myOrders);
   // delete item
   const handleDelete = (id) => {
-    console.log('working');
-    fetch(`https://gory-castle-80474.herokuapp.com/allOrders/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const remainingOrders = myOrders.find((item) => item._id !== id);
-          setMyOrders(remainingOrders);
-          alert('Deleted Successfully');
-        }
-      });
+    // console.log('working');
+    const proceed = window.confirm('Are you Sure,Wanna Delete');
+    if (proceed) {
+      fetch(`https://gory-castle-80474.herokuapp.com/allOrders/${id}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json)
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingOrders = myOrders.find((item) => item._id !== id);
+            setMyOrders(remainingOrders);
+            alert('Deleted Successfully');
+          }
+        });
+    }
   };
   return (
     <Container>
