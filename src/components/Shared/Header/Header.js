@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import logo from '../../../images/logoNew.png';
+import logo from '../../../images/logoFinal.png';
 
 const Header = () => {
   const { loggedOut, user } = useAuth();
@@ -12,8 +12,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand href='#home'>
           <div>
-            <img className='img-fluid' width='50' src={logo} alt='' />
-            FANTASY PARK
+            <img className='img-fluid' width='130' src={logo} alt='' />
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -52,17 +51,6 @@ const Header = () => {
               </Nav.Link>
             )}
 
-            {user.email ? (
-              <Nav.Link as={Link} to='/'>
-                <button onClick={loggedOut} className='btn btn-danger'>
-                  LOGOUT
-                </button>
-              </Nav.Link>
-            ) : (
-              <Nav.Link as={Link} to='/login'>
-                <button className='btn btn-primary'>LOGIN</button>
-              </Nav.Link>
-            )}
             {user.email === 'admin@admin.com' ? (
               <Nav.Link>
                 <button className='btn btn-outline-light disabled'>
@@ -72,6 +60,17 @@ const Header = () => {
             ) : (
               <Nav.Link as={Link} to='/login'>
                 <button className='btn btn-info '>ADMIN LOGIN</button>
+              </Nav.Link>
+            )}
+            {user.email ? (
+              <Nav.Link as={Link} to='/'>
+                <button onClick={loggedOut} className='btn btn-danger'>
+                  LOGOUT
+                </button>
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to='/login'>
+                <button className='btn btn-primary'>LOGIN</button>
               </Nav.Link>
             )}
           </Nav>
