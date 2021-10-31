@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logoFinal.png';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
   const { loggedOut, user } = useAuth();
@@ -10,7 +11,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark' sticky='top'>
       <Container>
-        <Navbar.Brand href='#home'>
+        <Navbar.Brand as={HashLink} to='/home#home'>
           <div>
             <img className='img-fluid' width='130' src={logo} alt='' />
           </div>
