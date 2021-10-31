@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
 const Event = ({ event, handleDelete, handleAddToCart }) => {
   const { _id, name, details, price, url } = event;
+  const { user } = useAuth();
   return (
     <Col>
       <Card>
@@ -36,14 +38,16 @@ const Event = ({ event, handleDelete, handleAddToCart }) => {
             </button>
           </Link>
           <br />
-          <button
-            onClick={() => {
-              handleDelete(_id);
-            }}
-            className='btn btn-outline-danger  rounded-circle'
-          >
-            X
-          </button>
+          {user.email === 'admin@admin.com' && (
+            <button
+              onClick={() => {
+                handleDelete(_id);
+              }}
+              className='btn btn-outline-danger  rounded-circle'
+            >
+              X
+            </button>
+          )}
         </Card.Footer>
       </Card>
     </Col>

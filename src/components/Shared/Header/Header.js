@@ -23,9 +23,12 @@ const Header = () => {
             <Nav.Link as={Link} to='/blogs'>
               BLOG
             </Nav.Link>
-            <Nav.Link as={Link} to='/allOrders'>
-              AllOrders
-            </Nav.Link>
+            {user.email === 'admin@admin.com' && (
+              <Nav.Link as={Link} to='/allOrders'>
+                MANAGE ALL ORDERS
+              </Nav.Link>
+            )}
+
             {user.email ? (
               <Nav.Link as={Link} to='/myOrder'>
                 MY ORDERS
@@ -42,6 +45,7 @@ const Header = () => {
                 </button>
               </Nav.Link>
             )}
+
             {user.email ? (
               <Nav.Link as={Link} to='/'>
                 <button onClick={loggedOut} className='btn btn-danger'>
@@ -53,9 +57,17 @@ const Header = () => {
                 <button className='btn btn-primary'>LOGIN</button>
               </Nav.Link>
             )}
-            <Nav.Link as={Link} to='/adminLogin'>
-              <button className='btn btn-info '>ADMIN LOGIN</button>
-            </Nav.Link>
+            {user.email === 'admin@admin.com' ? (
+              <Nav.Link>
+                <button className='btn btn-outline-light disabled'>
+                  Hello! Mr.Admin
+                </button>
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to='/login'>
+                <button className='btn btn-info '>ADMIN LOGIN</button>
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

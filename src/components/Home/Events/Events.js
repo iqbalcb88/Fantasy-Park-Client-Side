@@ -15,6 +15,7 @@ const Events = () => {
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [cart, setCart] = useCart();
+  const { user } = useAuth();
 
   const {
     register,
@@ -108,42 +109,44 @@ const Events = () => {
       fluid
       className='d-flex justify-content-center align-items-center flex-column'
     >
-      <div className='my-5'>
-        <h1>Add an event</h1>
-        <form
-          className='form-style d-flex flex-column justify-content-center'
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <input
-            placeholder='Event Name'
-            {...register('name', {
-              validate: (value) => value !== 'admin' || 'Nice try!',
-            })}
-          />
-          {errors.username && errors.username.message}
-          <input
-            placeholder='price'
-            type='number'
-            {...register('price', {
-              validate: (value) => value !== 'admin' || 'Nice try!',
-            })}
-          />
-          <textarea
-            placeholder='Details'
-            {...register('details', {
-              validate: (value) => value !== 'admin' || 'Nice try!',
-            })}
-          />
-          {errors.username && errors.username.message}
-          {/* input image */}
-          <input
-            {...register('picture', { required: true })}
-            type='file'
-            name='picture'
-          />
-          <button>submit</button>
-        </form>
-      </div>
+      {user.email === 'admin@admin.com' && (
+        <div className='my-5'>
+          <h1>Add an event</h1>
+          <form
+            className='form-style d-flex flex-column justify-content-center'
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              placeholder='Event Name'
+              {...register('name', {
+                validate: (value) => value !== 'admin' || 'Nice try!',
+              })}
+            />
+            {errors.username && errors.username.message}
+            <input
+              placeholder='price'
+              type='number'
+              {...register('price', {
+                validate: (value) => value !== 'admin' || 'Nice try!',
+              })}
+            />
+            <textarea
+              placeholder='Details'
+              {...register('details', {
+                validate: (value) => value !== 'admin' || 'Nice try!',
+              })}
+            />
+            {errors.username && errors.username.message}
+            {/* input image */}
+            <input
+              {...register('picture', { required: true })}
+              type='file'
+              name='picture'
+            />
+            <button>submit</button>
+          </form>
+        </div>
+      )}
       <div>
         <Container>
           <h2>Cart</h2>

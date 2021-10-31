@@ -9,20 +9,32 @@ import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 import Events from '../Events/Events';
-import MyOrder from '../MyOrder/MyOrder';
 import CenterMode from '../SlickSlider/SlickSlider';
 import './Home.css';
 
 const Home = () => {
+  const { createWithEmailPass, setUser, setIsLoading } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const redirect_uri = location.state?.from || '/home';
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    createWithEmailPass(data.email, data.password)
+      .then((result) => {
+        setUser(result.user);
+        history.push(redirect_uri);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
     handleShow();
     reset();
     console.log(data);

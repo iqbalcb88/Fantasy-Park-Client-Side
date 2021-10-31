@@ -28,15 +28,15 @@ function App() {
           <Route path='/login'>
             <Login />
           </Route>
-          <Route path='/myOrder'>
+          <PrivateRoute path='/myOrder'>
             <MyOrder />
-          </Route>
+          </PrivateRoute>
           <Route path='/allOrders'>
             <AllOrders />
           </Route>
-          <Route path='/review'>
+          <PrivateRoute path='/review'>
             <OrderReview></OrderReview>
-          </Route>
+          </PrivateRoute>
           <Route path='/events'>
             <Events />
           </Route>
