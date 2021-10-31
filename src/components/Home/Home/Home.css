@@ -1,0 +1,41 @@
+.style-img {
+  background-image: url('../../../images/slide2-1.jpg');
+  color: rgb(0, 0, 0);
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+.heading {
+  overflow: hidden;
+}
+.style-1 {
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.493);
+}
+.style-2 {
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+.third-section {
+  background-color: rgb(14, 5, 71);
+  color: aliceblue;
+  /* border-radius: 5px; */
+}
+.third-section .section-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 5px 5px 5px;
+}
+.third-section .section-item h4 {
+  overflow: hidden;
+}
+.third-section .section-item:hover {
+  background-color: rgb(15, 12, 34);
+  cursor: pointer;
+  color: rgb(255, 251, 253);
+}
