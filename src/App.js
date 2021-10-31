@@ -45,7 +45,7 @@ function App() {
           <PrivateRoute path='/details/:eventId'>
             <EventDetails />
           </PrivateRoute>
-          <Route path='/notFound'>
+          <Route path='/*'>
             <NotFound />
           </Route>
         </Switch>
