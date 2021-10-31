@@ -5,9 +5,9 @@ import { Col, Row } from 'react-bootstrap';
 const AllOrderItem = ({ item, handleDelete }) => {
   const { _id, name, email, quantity, status } = item;
   return (
-    <Row className=' py-3'>
+    <Row className=' py-3 overflow-hidden'>
       <Col>
-        <h4>OrderName: {name}</h4>
+        <p>OrderName: {name}</p>
       </Col>
       <Col>
         <p>Email: {email}</p>

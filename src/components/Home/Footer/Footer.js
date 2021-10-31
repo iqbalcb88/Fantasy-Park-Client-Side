@@ -15,10 +15,10 @@ import logo from '../../../images/logoNew.png';
 const Footer = () => {
   return (
     <div className='bg-light'>
-      <Container fluid className='bg-dark pt-5'>
+      <Container fluid className='bg-dark pt-5 overflow-hidden'>
         <Row>
           <Col xs={12} md={3}>
-            <div className='d-flex justify-content-end align-items-center'>
+            <div className='d-flex justify-content-center align-items-center overflow-hidden'>
               <img width='280' className='img-fluid' src={logo} alt='' />
             </div>
           </Col>
