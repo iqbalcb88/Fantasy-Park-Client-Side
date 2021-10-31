@@ -9,7 +9,7 @@ Live site Link [FantasyPark](https://fantasypark-3c085.web.app).
 - Fonts: FontAwesome
 - React Router Dom
 - Custom CSS, Jsx
-- Environment Variable, Deploy on firebase.
+- Environment Variable, Deploy on firebase,github,heroku
 
 ### Usage of this sites
 
