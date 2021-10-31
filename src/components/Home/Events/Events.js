@@ -36,7 +36,7 @@ const Events = () => {
             const url = await response.data.data.display_url;
             data.url = url;
             axios
-              .post('http://localhost:5000/addEvent', data)
+              .post('https://gory-castle-80474.herokuapp.com/addEvent', data)
               .then(function (response) {
                 // setNewData({});
                 console.log(response.data);
@@ -59,7 +59,9 @@ const Events = () => {
   const size = 6;
   // load data from server
   useEffect(() => {
-    fetch(`http://localhost:5000/allEvents?page=${page}&&size=${size}`)
+    fetch(
+      `https://gory-castle-80474.herokuapp.com/allEvents?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setEvents(data.events);
@@ -73,17 +75,21 @@ const Events = () => {
 
   // delete item
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/allEvents/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const remainingEvents = events.find((e) => e._id !== id);
-          setEvents(remainingEvents);
-          alert('Deleted Successfully');
-        }
-      });
+    const proceed = window.confirm('Are you Sure,Wanna Delete');
+    if (proceed) {
+      fetch(`https://gory-castle-80474.herokuapp.com/allEvents/${id}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json)
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert('Deleted Successfully');
+            const remainingEvents = events.filter((e) => e._id !== id);
+            setEvents(remainingEvents);
+          }
+        });
+    }
   };
 
   const handleAddToCart = (event) => {

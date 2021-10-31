@@ -9,7 +9,7 @@ const EventDetails = () => {
   const { eventId } = useParams();
   const [event, setEvent] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/allEvents/${eventId}`)
+    fetch(`https://gory-castle-80474.herokuapp.com/allEvents/${eventId}`)
       .then((res) => res.json())
       .then((data) => setEvent(data));
   }, []);

@@ -8,7 +8,7 @@ const useCart = () => {
   const ids = Object.keys(savedCart);
   // console.log(ids);
   useEffect(() => {
-    fetch('http://localhost:5000/allEvents/byIds', {
+    fetch('https://gory-castle-80474.herokuapp.com/allEvents/byIds', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

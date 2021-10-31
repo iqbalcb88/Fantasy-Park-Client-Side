@@ -32,7 +32,7 @@ const OrderReview = () => {
       return e;
     });
     axios
-      .post('http://localhost:5000/orders', {
+      .post('https://gory-castle-80474.herokuapp.com/orders', {
         orderArray,
       })
       .then(function (response) {
@@ -52,9 +52,13 @@ const OrderReview = () => {
   const { user } = useAuth();
   // console.log(cart);
   const handleRemove = (id) => {
-    const updateCart = cart.filter((e) => e._id !== id);
-    setCart(updateCart);
-    removeFromLocalStorage(id);
+    const proceed = window.confirm('Are you Sure,Wanna Delete');
+    if (proceed) {
+      const updateCart = cart.filter((e) => e._id !== id);
+      setCart(updateCart);
+      removeFromLocalStorage(id);
+      alert('Item Deleted');
+    }
   };
   // const handleConfirmOrder = () => {
 

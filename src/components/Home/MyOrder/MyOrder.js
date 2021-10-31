@@ -7,7 +7,7 @@ const MyOrder = () => {
   const [myOrders, setMyOrders] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch('http://localhost:5000/allOrders')
+    fetch('https://gory-castle-80474.herokuapp.com/allOrders')
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, []);
@@ -15,7 +15,7 @@ const MyOrder = () => {
   // delete item
   const handleDelete = (id) => {
     console.log('working');
-    fetch(`http://localhost:5000/allOrders/${id}`, {
+    fetch(`https://gory-castle-80474.herokuapp.com/allOrders/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json)

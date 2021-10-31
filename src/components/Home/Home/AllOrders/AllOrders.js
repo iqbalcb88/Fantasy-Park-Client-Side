@@ -7,7 +7,7 @@ const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   // const { user } = useAuth();
   useEffect(() => {
-    fetch('http://localhost:5000/allOrders')
+    fetch('https://gory-castle-80474.herokuapp.com/allOrders')
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
@@ -15,17 +15,20 @@ const AllOrders = () => {
   // delete item
   const handleDelete = (id) => {
     console.log('working');
-    fetch(`http://localhost:5000/allOrders/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const remainingOrders = allOrders.find((item) => item._id !== id);
-          setAllOrders(remainingOrders);
-          alert('Deleted Successfully');
-        }
-      });
+    const proceed = window.confirm('Are you Sure,Wanna Delete');
+    if (proceed) {
+      fetch(`https://gory-castle-80474.herokuapp.com/allOrders/${id}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json)
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingOrders = allOrders.find((item) => item._id !== id);
+            setAllOrders(remainingOrders);
+            alert('Deleted Successfully');
+          }
+        });
+    }
   };
   // handle status btn
   // const handleStatusBtn = () => {};
